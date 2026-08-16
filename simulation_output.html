@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SR Flip-Flop Simulation Output</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 30px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #24292f;
+        }
+
+        h2 {
+            color: #0969da;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th {
+            background: #0969da;
+            color: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background: #f6f8fa;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+
+        .output {
+            background: #111827;
+            color: #00ff66;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre-line;
+        }
+
+        .note {
+            background: #fff8c5;
+            padding: 15px;
+            border-left: 5px solid #d4a72c;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>SR Flip-Flop Simulation Output</h1>
+
+    <p>
+        This page shows the simulated behavior of a positive-edge
+        triggered SR Flip-Flop implemented using Verilog HDL.
+    </p>
+
+    <h2>Truth Table</h2>
+
+    <table>
+        <tr>
+            <th>S</th>
+            <th>R</th>
+            <th>Q(next)</th>
+            <th>Operation</th>
+        </tr>
+
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>Q</td>
+            <td>Hold</td>
+        </tr>
+
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>Reset</td>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>Set</td>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>X</td>
+            <td>Invalid</td>
+        </tr>
+    </table>
+
+    <h2>Simulation Results</h2>
+
+    <table>
+        <tr>
+            <th>Time (ns)</th>
+            <th>Reset</th>
+            <th>S</th>
+            <th>R</th>
+            <th>Q</th>
+            <th>Operation</th>
+        </tr>
+
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>Reset</td>
+        </tr>
+
+        <tr>
+            <td>10</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>Hold</td>
+        </tr>
+
+        <tr>
+            <td>20</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>Set</td>
+        </tr>
+
+        <tr>
+            <td>30</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>Hold</td>
+        </tr>
+
+        <tr>
+            <td>40</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>Reset</td>
+        </tr>
+
+        <tr>
+            <td>50</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>Hold</td>
+        </tr>
+
+    </table>
+
+    <h2>Console Output</h2>
+
+    <div class="output">
+Time=0  | Reset=1 | S=0 | R=0 | Q=0
+Time=10 | Reset=0 | S=0 | R=0 | Q=0
+Time=20 | Reset=0 | S=1 | R=0 | Q=1
+Time=30 | Reset=0 | S=0 | R=0 | Q=1
+Time=40 | Reset=0 | S=0 | R=1 | Q=0
+Time=50 | Reset=0 | S=0 | R=0 | Q=0
+    </div>
+
+    <h2>Result</h2>
+
+    <p class="success">
+        ✓ Simulation completed successfully.
+    </p>
+
+    <p>
+        The output Q follows the expected SR Flip-Flop behavior:
+        Hold, Set, and Reset.
+    </p>
+
+    <div class="note">
+        <strong>Note:</strong> S = 1 and R = 1 is a forbidden condition
+        for the standard SR Flip-Flop and is therefore not applied
+        during the functional simulation.
+    </div>
+
+</div>
+
+</body>
+</html>
